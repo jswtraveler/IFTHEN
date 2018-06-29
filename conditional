@@ -1,0 +1,12 @@
+conditions = [
+    (df['Set'] == 'Z') & (df['Type'] == 'A'),
+    (df['Set'] == 'Z') & (df['Type'] == 'B'),
+    (df['Type'] == 'B')]
+choices = ['yellow', 'blue', 'purple']
+df['color'] = np.select(conditions, choices, default='black')
+
+OR
+
+df['color'] = ['red' if x == 'Z' else 'green' for x in df['Set']]
+
+['yes' if v == 1 else 'no' if v == 2 else 'idle' for v in l]
